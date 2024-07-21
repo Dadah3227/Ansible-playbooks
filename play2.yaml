@@ -1,0 +1,24 @@
+-
+  name: play2
+  hosts: localhost
+
+
+
+
+  #tasks:
+ # - name: gather facts
+ #   debug:                  #there's a module called 'Debug' which debugs the file.
+ #   var: ansible_facts    #And we are asking it to store the debug into a variable called 'ansible_facts'
+
+  #- name: run only on Windows
+   # command: echo "running on WindowsOS"
+   # when: ansible_facts['os_family'] as'Debian'
+   # ignore_errors: true
+   # tags:
+   #   - db_related
+
+ # - name: date
+ #   command: date
+ #   tags:
+
+

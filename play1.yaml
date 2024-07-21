@@ -1,0 +1,43 @@
+-
+  name: first_playbook
+  hosts: localhost
+
+  vars:
+    - ip_address: 189.67.78.98
+    - servername: server1
+
+
+  tasks:
+    - name: hello world
+      command: echo "hello world"
+
+    - name: date
+      command: date
+
+    - name: display contents
+      command: ls -lrt /etc #list all the files and folders in etc folder
+
+      #name: Display contents of file
+      #command: ls -lrt chdir=/etc
+
+    - name: add contents to file
+      lineinfile:
+        path: file.txt
+        line: 167.35.898.56
+      register: var #this will put the output of the immediate above task into a var. And we can use that in another task (run on condition)
+
+    - name: run on condition
+      command: echo "running due to lineinfile"    #only want to run this task if CHANGE = True in the 'add contents to file', if change = false, I don't want to run
+      when: var.changed == true
+
+
+
+    - name: add contents to file
+      lineinfile:
+        path: file.txt
+        line: '{{ ip_address }}' #using variable. Notice the syntax {{   }} - it is called Jinja2 Templating. It added the variable 189.67.78.98 to file.txt
+
+
+
+    #name: display file contents
+     #command: cat file.txt

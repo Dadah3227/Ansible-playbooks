@@ -1,0 +1,2 @@
+ip_address: 189.67.78.98
+servername: server1
